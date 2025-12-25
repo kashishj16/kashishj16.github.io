@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kashish Jain | Computer Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #000428, #004e92);
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 100px 20px 60px;
+            background: linear-gradient(135deg, rgba(88, 28, 135, 0.3), rgba(59, 130, 246, 0.3));
+            border-radius: 20px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            background: linear-gradient(45deg, #60a5fa, #a78bfa, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 20px rgba(96, 165, 250, 0.5)); }
+            to { filter: drop-shadow(0 0 30px rgba(167, 139, 250, 0.8)); }
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #a78bfa;
+            margin-bottom: 5px;
+        }
+
+        .college {
+            font-size: 1em;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: #60a5fa;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 12px 24px;
+            border: 2px solid #60a5fa;
+            border-radius: 30px;
+            transition: all 0.3s;
+            background: rgba(96, 165, 250, 0.1);
+        }
+
+        .social-links a:hover {
+            background: #60a5fa;
+            color: #0a0e27;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(96, 165, 250, 0.4);
+        }
+
+        .section {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(96, 165, 250, 0.2);
+            border-color: rgba(96, 165, 250, 0.3);
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #60a5fa;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: "▸";
+            color: #a78bfa;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: rgba(96, 165, 250, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #a78bfa;
+            transition: all 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateX(10px);
+            background: rgba(96, 165, 250, 0.2);
+        }
+
+        .skill-category h3 {
+            color: #a78bfa;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .skill-category p {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .experience-item {
+            background: rgba(167, 139, 250, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ec4899;
+        }
+
+        .experience-item h3 {
+            color: #ec4899;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-item li {
+            color: #cbd5e1;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .experience-item li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #60a5fa;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(88, 28, 135, 0.2), rgba(59, 130, 246, 0.2));
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(167, 139, 250, 0.3);
+        }
+
+        .project-card h3 {
+            color: #a78bfa;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .project-card p {
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tech-tag {
+            background: rgba(96, 165, 250, 0.2);
+            color: #60a5fa;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            transition: all 0.3s;
+        }
+
+        .tech-tag:hover {
+            background: rgba(96, 165, 250, 0.4);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #94a3b8;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            .social-links { flex-direction: column; align-items: center; }
+            .section { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <header>
+            <h1>KASHISH JITENDRA JAIN</h1>
+            <p class="subtitle">Final Year Computer Engineer Student</p>
+            <p class="college">Thadomal Shahani Engineering College</p>
+            
+            <div class="social-links">
+                <a href="https://github.com/kashishj16" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/kashishjain662519283/" target="_blank">LinkedIn</a>
+                <a href="mailto:Kashishj405@gmail.com">Email</a>
+            </div>
+        </header>
+
+        <div class="section">
+            <h2>Technical Arsenal</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Core Programming</h3>
+                    <p>Python • C • C++ • Java (OOP)</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Data Analytics</h3>
+                    <p>Tableau • Power BI • Matplotlib</p>
+                </div>
+                <div class="skill-category">
+                    <h3>ML & AI Frameworks</h3>
+                    <p>NumPy • Pandas • PyTorch • TensorFlow</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Specializations</h3>
+                    <p>Image Recognition • Data Segmentation</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Database Systems</h3>
+                    <p>SQL • DBMS • NoSQL</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Management</h3>
+                    <p>Product Lifecycle • Project Management</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Professional Experience</h2>
+            <div class="experience-item">
+                <h3>HR & Backend Development Intern</h3>
+                <ul>
+                    <li>Architected and deployed backend infrastructure for a Revenue Analysis System, implementing robust data processing pipelines, validation layers, and automated report generation modules</li>
+                    <li>Transformed complex revenue datasets into actionable intelligence through advanced analytics, delivering key performance metrics that drove strategic business decisions</li>
+                    <li>Synchronized efforts across engineering, product, and operations teams to deliver scalable technical solutions aligned with organizational objectives</li>
+                    <li>Optimized data workflows resulting in enhanced system efficiency and accuracy in financial reporting mechanisms</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Featured Projects</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <h3>🛰️ Slum Area Classification Model</h3>
+                    <p>Developing a CNN-based classification system to identify and analyze slum areas using satellite imaging and deep learning. Implemented preprocessing, NDVI extraction, and texture analysis with K-Means and CNN approaches for land-use classification. Generated GeoTIFF outputs visualized in QGIS.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">CNN</span>
+                        <span class="tech-tag">Satellite Imaging</span>
+                        <span class="tech-tag">K-Means</span>
+                        <span class="tech-tag">QGIS</span>
+                        <span class="tech-tag">GeoTIFF</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>🌄 Landslide Detection System</h3>
+                    <p>Built an advanced machine learning model to detect landslides using image recognition techniques, enhancing disaster prediction and prevention capabilities. Leveraged computer vision algorithms for real-time terrain analysis and risk assessment.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Image Recognition</span>
+                        <span class="tech-tag">ML</span>
+                        <span class="tech-tag">Computer Vision</span>
+                        <span class="tech-tag">Disaster Prevention</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>🧠 NeuroSense - Keystroke Dynamics</h3>
+                    <p>Built a data-driven system analyzing keystroke dynamics for detecting neurological patterns. Captured latency, hold time, and typing rhythm with a Python backend. Applied XGBoost and LSTM models with SHAP for explainable AI decision-making.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">XGBoost</span>
+                        <span class="tech-tag">LSTM</span>
+                        <span class="tech-tag">SHAP</span>
+                        <span class="tech-tag">Data Analysis</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>🌱 e-Kisaan: AI Voice Assistant</h3>
+                    <p>Designed a bilingual (Hindi + English) AI-powered voice assistant supporting farmers with crop and soil queries. Integrated speech recognition and NLP for real-time interaction, providing crop recommendations, fertilizer guidance, and weather insights via customTkinter GUI.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">NLP</span>
+                        <span class="tech-tag">Speech Recognition</span>
+                        <span class="tech-tag">Tkinter</span>
+                        <span class="tech-tag">AI Assistant</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>♟️ Othello Game (Reversi)</h3>
+                    <p>Designed and implemented a GUI-based Othello game with intelligent AI opponent using the Minimax Algorithm and Alpha-Beta Pruning for optimized decision-making and strategic gameplay.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Minimax Algorithm</span>
+                        <span class="tech-tag">Alpha-Beta Pruning</span>
+                        <span class="tech-tag">Game AI</span>
+                        <span class="tech-tag">GUI Development</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>💼 Revenue Analytics Engine</h3>
+                    <p>Built an enterprise-grade revenue analysis system with automated data validation, multi-dimensional reporting, and real-time performance dashboards. Integrated advanced ETL pipelines for seamless data transformation and business intelligence.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">Power BI</span>
+                        <span class="tech-tag">Backend Dev</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>🚀 Exploring the intersection of AI, Data Science, and Software Engineering 🚀</p>
+            <p style="margin-top: 10px;">© 2025 Kashish Jain | Built with passion and code</p>
+        </footer>
+    </div>
+
+    <script>
+        // Generate stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 200; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>
